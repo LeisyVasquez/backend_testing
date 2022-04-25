@@ -1,0 +1,35 @@
+-Ingresar a una BD directamente: psql BASE_DE_DATOS NOMBRE_USUARIO
+-Ayuda de psql: \?
+-Ayuda referente a las sentencias SQL: \h, \h ALTER
+-Información de la conexión actual: \conninfo
+-Saltar entre bases de datos: \c nombre_BD
+-Describir una tabla: \d <nombre_tabla> 
+-Listar los usuarios y sus roles de la base de datos actual: \du 
+-Listar BD:	\l
+-Listado con todas las tablas de la base BD (public): \dt
+-Listado con todos los esquemas de la base BD: \dn
+-Listado con todas las tablas, vistas y secuencias: \z
+-Listar sólo las tablas del esquema "x", ejecutar \dt x.*
+-Eliminar esquemas: DROP SCHEMA nombre_shema; 
+-Salir de psql: \q
+-Crear usuario: CREATE USER nombre_usuario WITH password 'replace_with_your_password';
+-Eliminar usuario: DROP USER nombre_usuario;
+-Crear BD: CREATE DATABASE nombre_BD WITH OWNER nombre_usuario;
+-Eliminar BD: DROP DATABASE nombre_BD;
+-Leer comandos desde un archivo: \i input.sql 
+-Dump a un archivo: pg_dump -U nombre_usuario nombre_db > db.out 
+-Dump todas BD: pg_dumpall > /var/lib/pgsql/backups/dumpall.sql 
+-Restaurar BD: psql -f /var/lib/pgsql/backups/dumpall.sql mydb, psql -U postgres nombredb < archivo_restauracion.sql
+-Saber versión del gestor de BD: select version();
+-Cambiar dueño de la base de datos: ALTER DATABASE database_name OWNER TO new_owner;
+-Crear un superusuario: ALTER USER mysuper WITH SUPERUSER;
+-Saber el tamaño usado por una BD: SELECT pg_size_pretty(pg_database_size('dbname'));
+-Listar los usuarios desde postgres: \du
+-Para mostrar todas las tablas dentro de un esquema: \d+ nombre_Esquema.*
+-Para listar todas las tablas dentro de una base : \dt *.*7
+-Para mostrar una tabla en especifico de un esquema: \d+ nombre_Esquema . nombre_Tabla
+-Para entar a una postgres con un usuario diferente a postgres: psql -h localhost -d postgres -U usuario
+-Volver a ejecutar el comando ejecutando justo antes: \g
+-Ver el historial de comandos ejecutados: \s 
+-Si se quiere guardar la lista de comandos ejecutados en un archivo de texto plano: \s <nombre_archivo>
+

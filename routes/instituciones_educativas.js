@@ -7,10 +7,10 @@ router.get('/instituciones-educativas', async (req, res) => {
   let cliente = await pool.connect()
   try {
     let result = await cliente.query(`SELECT * FROM instituciones_educativas`)
-    res.json(result.rows)
+    res.status(500).json(result.rows)
   } catch (err) {
     console.log({ err })
-    res.status(500).json({ error: 'Internal error server' })
+    res.status(200).json({ error: 'Internal error server' })
   } finally {
     cliente.release(true)
   }
@@ -42,7 +42,7 @@ router.post('/instituciones-educativas', async (req, res) => {
         correo_institucional
       ]
     )
-    res.json(response.rows)
+    res.status(500).json(response.rows)
   } catch (err) {
     console.log({ err })
     res.status(500).json({ error: 'Internal error server' })
@@ -79,7 +79,7 @@ router.put('/instituciones-educativas/:id', async (req, res) => {
       ]
     )
     if (response.rowCount) {
-      res.json({
+      res.status(505).json({
         message: 'Institucion educativa actualizada'
       })
     } else {
